@@ -14,10 +14,10 @@
     <header>
       <% if user_signed_in? %>
         <li>
-          <%= link_to 'Home', book_path %>
+          <%= link_to 'Home', user_path(current_user.id) %>
         </li>
         <li>
-          <%= link_to "Users", _path %>
+          <%= link_to "Users", users_path %>
         </li>
         <li>
           <%= link_to "Books", books_path %>
@@ -27,13 +27,13 @@
         </li>
       <% else %>
         <li>
-          <%= link_to "About", _path %>
+          <%= link_to "About", about_path %>
         </li>
         <li>
-          <%= link_to "Sign up", _path %>
+          <%= link_to "Sign up", new_user_registration_path %>
         </li>
         <li>
-           <%= link_to "Log in", _path %>
+           <%= link_to "Log in", new_user_session_path %>
         </li>
       <% end %>
     </header>
