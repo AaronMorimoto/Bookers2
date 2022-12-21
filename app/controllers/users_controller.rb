@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @books = @user.books
     #@book_new = Book.new
     @book = Book.new
-    @book_ids = @user.book_ids
+    #@book_ids = @user.book_ids
     #@book_id = Book.find(params[:book_id])
   end
 
