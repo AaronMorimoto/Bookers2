@@ -1,6 +1,38 @@
-<h1>book#showページ</h1>
-
-  
-  <% if book.user == current_user %>
-    <%= link_to "削除", book_path(@book), method: :delete %>
-  <% end %>
+<main>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+      
+      <%= render 'users/list', user: @user, book: @book %>
+          
+      <div class="col-md-8 offset-md-1">
+        <h2>Book detail</h2>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <a href="<%= user_path(@user) %>">
+                  <%= image_tag @user.get_profile_image(100,100) %></br>
+                  <%= @user.name %>
+                </a>
+              </td>
+              <td>
+                <a href="<%= book_path(@book) %>">
+                  <%= @book.title %>
+                </a>
+              </td>
+              <td>
+                <%= @book.body %>
+              </td>
+              <td>
+                <a class="btn btn-sm btn-success" href="<%= edit_book_path(@book) %>">Edit</a>
+              </td>
+              <td>
+                <a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger" rel="nofollow" data-method="delete" href="<%= book_path(@book) %>">Destroy</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
