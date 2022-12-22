@@ -1,6 +1,6 @@
 <h1>book#showページ</h1>
 
   
-  <% if @book.user == current_user %>
+  <% if book.user == current_user %>
     <%= link_to "削除", book_path(@book), method: :delete %>
   <% end %>
