@@ -23,12 +23,14 @@
               <td>
                 <%= @book.body %>
               </td>
-              <td>
-                <a class="btn btn-sm btn-success" href="<%= edit_book_path(@book) %>">Edit</a>
-              </td>
-              <td>
-                <a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger" rel="nofollow" data-method="delete" href="<%= book_path(@book) %>">Destroy</a>
-              </td>
+              <% if @book.user == current_user %>
+                <td>
+                  <a class="btn btn-sm btn-success" href="<%= edit_book_path(@book) %>">Edit</a>
+                </td>
+                <td>
+                  <a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger" rel="nofollow" data-method="delete" href="<%= book_path(@book) %>">Destroy</a>
+                </td>
+              <% end %>
             </tr>
           </tbody>
         </table>
